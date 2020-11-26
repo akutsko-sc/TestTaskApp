@@ -11,13 +11,13 @@ const DetailsVideo = (props) => {
     const {videoSource, setVideoSource} = props;
     const videoPlayerRef = useRef();
 
-    if(Platform.OS === 'ios'){
-        useEffect(() => {
-            if(videoSource){
+    useEffect(() => {
+        if(Platform.OS === 'ios' && videoSource){
+            setTimeout(() => {
                 videoPlayerRef.current.presentFullscreenPlayer();
-            }
-        }, [videoSource])
-    }
+            }, 100)
+        }
+    }, [videoSource])
 
     const dismissFullScreen = () => setVideoSource(null);
 
@@ -29,6 +29,7 @@ const DetailsVideo = (props) => {
                     fullscreenAutorotate={false}
                     onFullscreenPlayerWillDismiss={dismissFullScreen}
                     ref={videoPlayerRef}
+                    onError={(err) => dismissFullScreen()}
                     source={{uri: videoSource.src}}
                 />
             )
@@ -38,6 +39,7 @@ const DetailsVideo = (props) => {
                     <Video
                         resizeMode={'contain'}
                         ref={videoPlayerRef}
+                        onError={(err) => dismissFullScreen()}
                         source={{ uri: videoSource.src }}
                         controls={true}
                         style={{
