@@ -1,0 +1,4 @@
+#Wed Nov 25 19:35:37 MSK 2020
+base.0=/Volumes/HDD/TestTaskApp/android/app/build/intermediates/dex/debug/mergeDexDebug/out/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
