@@ -18,9 +18,9 @@ cd ios && pod install
 
 Android:
 ```
-react-native run-android
+npx react-native run-android
 ```
 IOS: 
 ```
-react-native run-ios
+npx react-native run-ios
 ```
