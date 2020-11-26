@@ -7,7 +7,7 @@ Using yarn:
 yarn install
 ```
 
-###iOS installation
+### iOS installation
 
 Run pod install in the ios directory:
 ```
