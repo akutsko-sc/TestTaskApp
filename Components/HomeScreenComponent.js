@@ -49,23 +49,27 @@ const HomeScreen = (props) => {
     }, [videoSource]);
 
     const fetchData = (url) => {
+        setStateActivityIndicator(true);
+
         return new Promise((resolve, reject) => {
             fetch(url)
-                .then((response) => resolve(response.json()))
+                .then(async (response) => {
+                    const data = await response.json();
+                    resolve(data);
+                })
                 .catch((err) => reject(err))
+                .finally(() => setStateActivityIndicator(false))
         })
     }
 
     const changeTabHelper = (activeTab) => {
         filterInputRef.current.onClearText();
-        setStateActivityIndicator(true);
         const urlForFetch = activeTab === 'video' ? VIDEO_DATA_URL : LINK_DATA_URL;
 
         fetchData(urlForFetch)
             .then((data) => {
                 setData(data);
                 setListData(data.entry);
-                setStateActivityIndicator(false);
             }, (err) => {
                 console.log(err);
             })
