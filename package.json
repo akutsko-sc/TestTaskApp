@@ -2,14 +2,6 @@
   "name": "TestTaskApp",
   "version": "0.0.1",
   "private": true,
-  "scripts": {
-    "android": "react-native run-android",
-    "ios": "react-native run-ios",
-    "start": "react-native start",
-    "test": "jest",
-    "lint": "eslint .",
-    "pod:install": "cd ios && pod install && cd .."
-  },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.10",
     "@react-navigation/native": "^5.8.10",

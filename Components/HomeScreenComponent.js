@@ -50,8 +50,6 @@ const HomeScreen = (props) => {
 
     const fetchData = (url) => {
         return new Promise((resolve, reject) => {
-            setStateActivityIndicator(true);
-
             fetch(url)
                 .then((response) => resolve(response.json()))
                 .catch((err) => reject(err))
@@ -60,6 +58,7 @@ const HomeScreen = (props) => {
 
     const changeTabHelper = (activeTab) => {
         filterInputRef.current.onClearText();
+        setStateActivityIndicator(true);
         const urlForFetch = activeTab === 'video' ? VIDEO_DATA_URL : LINK_DATA_URL;
 
         fetchData(urlForFetch)
