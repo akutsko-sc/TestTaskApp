@@ -65,10 +65,10 @@ const HomeScreen = (props) => {
             .then((data) => {
                 setData(data);
                 setListData(data.entry);
+                setStateActivityIndicator(false);
             }, (err) => {
                 console.log(err);
             })
-            .then(() => setStateActivityIndicator(false))
     }
 
     const onClickItem = (item, itemType) => {
